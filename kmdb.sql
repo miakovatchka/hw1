@@ -130,3 +130,90 @@
 
 -- The SQL statement for the cast output
 -- TODO!
+drop table movies;
+drop table actors;
+drop table characters;
+
+create table movies (
+    id integer primary key autoincrement,
+    title text,
+    year_released text,
+    rating text);
+
+insert into movies (
+    title,
+    year_released,
+    rating)
+values (
+    "Batman Begins",
+    "2005",
+    "PG-13"
+    );
+    insert into movies (
+    title,
+    year_released,
+    rating)
+values (
+    "The Dark Knight",
+    "2008",
+    "PG-13"
+    );
+ insert into movies (
+    title,
+    year_released,
+    rating)
+values (
+    "The Dark Knight Rises",
+    "2012",
+    "PG-13"
+    );
+create table characters (
+    id integer primary key autoincrement,
+    name_character text,
+    foreign key (id) references movies(id)
+);
+insert into characters (
+    name_character
+)
+    values (
+        "Bruce Wayne"
+    );
+    insert into characters (
+    name_character)
+    values (
+        "Alfred"
+    );
+     insert into characters (
+    name_character)
+    values (
+        "Ra's Al Ghul"
+    );
+     insert into characters (
+    name_character)
+    values (
+        "Rachel Dawes"
+    );
+ insert into characters (
+    name_character)
+    values (
+        "Commissioner Gordon"
+    );
+create table actors (
+    id integer primary key autoincrement,
+    real_name text,
+    foreign key (id) references movies(id),
+    foreign key (id) references characters(id)
+);
+insert into actors (
+    real_name)
+    values (
+        "Christian Bale"
+    );
+    insert into actors (
+    real_name)
+    values (
+        "Michael Caine"
+    );
+select * from movies;
+select * from actors;
+select * from characters;
