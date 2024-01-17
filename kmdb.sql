@@ -214,6 +214,52 @@ insert into actors (
     values (
         "Michael Caine"
     );
+    insert into actors (
+    real_name)
+    values (
+        "Liam Neeson"
+    );
+    insert into actors (
+    real_name)
+    values (
+        "Katie Holmes"
+    );
+     insert into actors (
+    real_name)
+    values (
+        "Gary Oldman"
+    );
+     insert into actors (
+    real_name)
+    values (
+        "Heath Ledger"
+    );
+     insert into actors (
+    real_name)
+    values (
+        "Aaron Eckhart"
+    );
+     insert into actors (
+    real_name)
+    values (
+        "Maggie Gyllenhaal"
+    );
+      insert into actors (
+    real_name)
+    values (
+        "Tom Hardy"
+    );
+      insert into actors (
+    real_name)
+    values (
+        "Joseph Gordon-Levitt"
+    );
+      insert into actors (
+    real_name)
+    values (
+        "Anne Hathaway"
+    );
+
 select * from movies;
 select * from actors;
 select * from characters;
