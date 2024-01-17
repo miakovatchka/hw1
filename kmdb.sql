@@ -133,6 +133,7 @@
 drop table movies;
 drop table actors;
 drop table characters;
+drop table studios;
 
 create table movies (
     id integer primary key autoincrement,
@@ -198,6 +199,31 @@ insert into characters (
     values (
         "Commissioner Gordon"
     );
+    insert into characters (
+    name_character)
+    values (
+        "Joker"
+    );
+    insert into characters (
+    name_character)
+    values (
+        "Harvey Dent"
+    );
+    insert into characters (
+    name_character)
+    values (
+        "Bane"
+    );
+    insert into characters (
+    name_character)
+    values (
+        "John Blake"
+    );
+    insert into characters (
+    name_character)
+    values (
+        "Selina Kyle"
+    );
 create table actors (
     id integer primary key autoincrement,
     real_name text,
@@ -259,7 +285,22 @@ insert into actors (
     values (
         "Anne Hathaway"
     );
-
+create table studios (
+    id integer primary key autoincrement,
+    studio_name text,
+    foreign key (id) references movies(id)
+);
+insert into studios (
+    studio_name)
+    values (
+        "Warner Bros."
+    );
 select * from movies;
 select * from actors;
 select * from characters;
+select * from studios;
+
+select movies.title, movies.year_released, movies.rating, studios.studio_name
+from movies
+inner join studios
+on movies.id = studios.movies_id;
