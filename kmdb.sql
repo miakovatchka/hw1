@@ -135,172 +135,79 @@ drop table actors;
 drop table characters;
 drop table studios;
 
+-- Create tables first
+create table studios (
+    id integer primary key autoincrement,
+    studio_name text,
+);
 create table movies (
     id integer primary key autoincrement,
     title text,
     year_released text,
-    rating text);
+    rating text,
+    studio_id integer,
+    foreign key (studio_) references studios(id)
+    );
 
-insert into movies (
-    title,
-    year_released,
-    rating)
-values (
-    "Batman Begins",
-    "2005",
-    "PG-13"
-    );
-    insert into movies (
-    title,
-    year_released,
-    rating)
-values (
-    "The Dark Knight",
-    "2008",
-    "PG-13"
-    );
- insert into movies (
-    title,
-    year_released,
-    rating)
-values (
-    "The Dark Knight Rises",
-    "2012",
-    "PG-13"
-    );
 create table characters (
     id integer primary key autoincrement,
     name_character text,
-    foreign key (id) references movies(id)
+    foreign key (movie_id) references movies(id)
 );
-insert into characters (
-    name_character
-)
-    values (
-        "Bruce Wayne"
-    );
-    insert into characters (
-    name_character)
-    values (
-        "Alfred"
-    );
-     insert into characters (
-    name_character)
-    values (
-        "Ra's Al Ghul"
-    );
-     insert into characters (
-    name_character)
-    values (
-        "Rachel Dawes"
-    );
- insert into characters (
-    name_character)
-    values (
-        "Commissioner Gordon"
-    );
-    insert into characters (
-    name_character)
-    values (
-        "Joker"
-    );
-    insert into characters (
-    name_character)
-    values (
-        "Harvey Dent"
-    );
-    insert into characters (
-    name_character)
-    values (
-        "Bane"
-    );
-    insert into characters (
-    name_character)
-    values (
-        "John Blake"
-    );
-    insert into characters (
-    name_character)
-    values (
-        "Selina Kyle"
-    );
+
 create table actors (
     id integer primary key autoincrement,
     real_name text,
-    foreign key (id) references movies(id),
-    foreign key (id) references characters(id)
+   foreign key (character_id) references characters(id),
 );
-insert into actors (
-    real_name)
-    values (
-        "Christian Bale"
-    );
-    insert into actors (
-    real_name)
-    values (
-        "Michael Caine"
-    );
-    insert into actors (
-    real_name)
-    values (
-        "Liam Neeson"
-    );
-    insert into actors (
-    real_name)
-    values (
-        "Katie Holmes"
-    );
-     insert into actors (
-    real_name)
-    values (
-        "Gary Oldman"
-    );
-     insert into actors (
-    real_name)
-    values (
-        "Heath Ledger"
-    );
-     insert into actors (
-    real_name)
-    values (
-        "Aaron Eckhart"
-    );
-     insert into actors (
-    real_name)
-    values (
-        "Maggie Gyllenhaal"
-    );
-      insert into actors (
-    real_name)
-    values (
-        "Tom Hardy"
-    );
-      insert into actors (
-    real_name)
-    values (
-        "Joseph Gordon-Levitt"
-    );
-      insert into actors (
-    real_name)
-    values (
-        "Anne Hathaway"
-    );
-create table studios (
-    id integer primary key autoincrement,
-    studio_name text,
-    foreign key (id) references movies(id)
-);
+
+-- Start filling tables starting with simplest
 insert into studios (
     studio_name)
     values (
         "Warner Bros."
     );
+insert into movies (
+    title,
+    year_released,
+    rating,
+    studio_id)
+values (
+    "Batman Begins",
+    "2005",
+    "PG-13",
+    1
+    );
+    insert into movies (
+    title,
+    year_released,
+    rating,
+    studio_id)
+values (
+    "The Dark Knight",
+    "2008",
+    "PG-13",
+    1
+    );
+ insert into movies (
+    title,
+    year_released,
+    rating,
+    studio_id)
+values (
+    "The Dark Knight Rises",
+    "2012",
+    "PG-13",
+    1
+);
+
+
+
 select * from movies;
 select * from actors;
 select * from characters;
 select * from studios;
 
-select movies.title, movies.year_released, movies.rating, studios.studio_name
-from movies
-inner join studios
-on movies.id = studios.movies_id;
+SELECT movie.title, movie.year_released, movie.rating, studio.studio_name
+FROM movies
+INNER JOIN studios ON movie.studio_id = studio.id;
