@@ -146,7 +146,7 @@ create table movies (
     year_released text,
     rating text,
     studio_id integer,
-    foreign key (studio_) references studios(id)
+    foreign key (studio_id) references studios(id)
     );
 
 create table characters (
@@ -200,14 +200,7 @@ values (
     "PG-13",
     1
 );
-
-
-
 select * from movies;
 select * from actors;
 select * from characters;
 select * from studios;
-
-SELECT movie.title, movie.year_released, movie.rating, studio.studio_name
-FROM movies
-INNER JOIN studios ON movie.studio_id = studio.id;
