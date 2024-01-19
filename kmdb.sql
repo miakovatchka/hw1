@@ -113,20 +113,9 @@
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
--- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
 
 -- The SQL statement for the movies output
 -- TODO!
-
--- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
-
 
 -- The SQL statement for the cast output
 -- TODO!
@@ -145,19 +134,23 @@ create table movies (
     title text,
     year_released text,
     rating text,
+    studio_id integer,
     foreign key (studio_id) references studios(studio_id)
     );
 create table figures (
     figure_id integer primary key autoincrement,
     figure text,
+    movie_id integer,
     foreign key (movie_id) references movies(movie_id)
     );
 create table actors (
     actor_id integer primary key autoincrement,
     actor text,
-   foreign key (figure_id) references figures(id)
+    figure_id integer,
+   foreign key (figure_id) references figures(figure_id)
    );
--- Start filling tables starting with simplest
+
+-- Start filling tables for part 1
 insert into studios (
     studio_name)
     values (
@@ -196,7 +189,228 @@ values (
     "PG-13",
     1
 );
+
+
+-- Prints a header for the movies output
+.print "Movies"
+.print "======"
+.print ""
+
+-- Inner join to print desired output for Movies
+select movies.title, movies.year_released, movies.rating, studios.studio_name
+from movies
+inner join studios
+on movies.studio_id = studios.studio_id;
+
+-- Start filling tables for part 2
+create table movie_characters (
+    movie_id integer,
+    actor_id integer,
+    figure_id integer,
+    foreign key (movie_id) references movies(movie_id),
+    foreign key (actor_id) references actors(actor_id),
+    foreign key (figure_id) references figures(figure_id)
+
+insert into figures (
+    figure,
+    movie_id
+)
+    values (
+        "Bruce Wayne",
+        1
+    );
+    insert into figures (
+    figure,
+    movie_id
+)
+    values (
+        "Bruce Wayne",
+        2
+    );
+    insert into figures (
+    figure,
+    movie_id
+)
+    values (
+        "Bruce Wayne",
+        3
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Alfred",
+        1
+    );
+     insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Alfred",
+        2
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Ra's Al Ghul",
+        1
+    );
+     insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Rachel Dawes",
+        1
+    );
+     movie_id)
+    values (
+        "Rachel Dawes",
+        2
+    );
+ insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Commissioner Gordon",
+        1
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Commissioner Gordon",
+        3
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Joker",
+        2
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Harvey Dent",
+        2
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Bane",
+        3
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "John Blake",
+        3
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Selina Kyle",
+        3
+    );
+-- Insert values into actors
+insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Christian Bale",
+        1
+    );
+    insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Michael Caine",
+        2
+    );
+    insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Liam Neeson",
+        3
+    );
+    insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Katie Holmes",
+        4
+    );
+     insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Gary Oldman",
+        5
+    );
+     insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Heath Ledger",
+        6
+    );
+     insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Aaron Eckhart",
+        7
+    );
+     insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Maggie Gyllenhaal",
+        4
+    );
+      insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Tom Hardy",
+        8
+    );
+      insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Joseph Gordon-Levitt",
+        9
+    );
+      insert into actors (
+    actor,
+    figure_id)
+    values (
+        "Anne Hathaway",
+        10
+    );
+insert into movie_characters
+movie_id, 
+actor_id,
+character_id)
+values
+(1,
+1,
+1)
 select * from movies;
 select * from actors;
 select * from figures;
 select * from studios;
+
+-- Prints a header for the cast output
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
+
