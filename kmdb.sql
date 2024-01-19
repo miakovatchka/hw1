@@ -132,35 +132,31 @@
 -- TODO!
 drop table movies;
 drop table actors;
-drop table characters;
+drop table figures;
 drop table studios;
 
 -- Create tables first
 create table studios (
-    id integer primary key autoincrement,
-    studio_name text,
+    studio_id integer primary key autoincrement,
+    studio_name text
 );
 create table movies (
-    id integer primary key autoincrement,
+    movie_id integer primary key autoincrement,
     title text,
     year_released text,
     rating text,
-    studio_id integer,
-    foreign key (studio_id) references studios(id)
+    foreign key (studio_id) references studios(studio_id)
     );
-
-create table characters (
-    id integer primary key autoincrement,
-    name_character text,
-    foreign key (movie_id) references movies(id)
-);
-
+create table figures (
+    figure_id integer primary key autoincrement,
+    figure text,
+    foreign key (movie_id) references movies(movie_id)
+    );
 create table actors (
-    id integer primary key autoincrement,
-    real_name text,
-   foreign key (character_id) references characters(id),
-);
-
+    actor_id integer primary key autoincrement,
+    actor text,
+   foreign key (figure_id) references figures(id)
+   );
 -- Start filling tables starting with simplest
 insert into studios (
     studio_name)
@@ -202,5 +198,5 @@ values (
 );
 select * from movies;
 select * from actors;
-select * from characters;
+select * from figures;
 select * from studios;
