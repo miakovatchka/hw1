@@ -121,9 +121,7 @@
 -- TODO!
 drop table movies;
 drop table actors;
-drop table figures;
 drop table studios;
-drop table movie_figures;
 
 -- Create tables first
 create table studios (
@@ -138,18 +136,12 @@ create table movies (
     studio_id integer,
     foreign key (studio_id) references studios(studio_id)
     );
-create table figures (
-    figure_id integer primary key autoincrement,
-    figure text,
-    movie_id integer,
-    foreign key (movie_id) references movies(movie_id)
-    );
 create table actors (
     actor_id integer primary key autoincrement,
     actor text,
-    figure_id integer,
     figure text,
-   foreign key (figure_id) references figures(figure_id)
+    movie_id integer,
+   foreign key (movie_id) references movies(movie_id)
    );
 
 -- Start filling tables for part 1
@@ -208,80 +200,129 @@ on movies.studio_id = studios.studio_id;
 -- Insert values into actors
 insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Christian Bale",
-        "Bruce Wayne"
+        "Bruce Wayne",
+        1
     );
     insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
+    values (
+        "Christian Bale",
+        "Bruce Wayne",
+        2
+    );
+    insert into actors (
+    actor,
+    figure,
+    movie_id)
+    values (
+        "Christian Bale",
+        "Bruce Wayne",
+        3
+    );
+    insert into actors (
+    actor,
+    figure,
+    movie_id)
     values (
         "Michael Caine",
-        "Alfred"
+        "Alfred",
+        1
+    );
+     insert into actors (
+    actor,
+    figure,
+    movie_id)
+    values (
+        "Michael Caine",
+        "Alfred",
+        2
     );
     insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Liam Neeson",
-        "Ra's Al Ghul"
+        "Ra's Al Ghul",
+        1
     );
     insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Katie Holmes",
-        "Rachel Dawes"
+        "Rachel Dawes",
+        1
     );
      insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Gary Oldman",
-        "Commissioner Gordon"
+        "Commissioner Gordon",
+        1
     );
      insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Heath Ledger",
-        "Joker"
+        "Joker",
+        2
     );
      insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Aaron Eckhart",
-        "Harvey Dent"
+        "Harvey Dent",
+        2
     );
      insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Maggie Gyllenhaal",
-        "Rachel Dawes"
+        "Rachel Dawes",
+        2
     );
       insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Tom Hardy",
-        "Bane"
+        "Bane",
+        3
     );
       insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Joseph Gordon-Levitt",
-        "John Blake"
+        "John Blake",
+        3
     );
       insert into actors (
     actor,
-    figure)
+    figure,
+    movie_id)
     values (
         "Anne Hathaway",
-        "Selina Kyle"
+        "Selina Kyle",
+        3
     );
 
 select * from movies;
@@ -296,3 +337,10 @@ select * from studios;
 .print ""
 
 -- Select output for Part 2
+select movies.title, actors.actor, actors.figure
+from movies
+inner join actors
+on movies.movie_id = actors.movie_id
+order by 
+movie.title,
+actors.actor
