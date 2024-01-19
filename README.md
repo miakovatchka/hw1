@@ -196,3 +196,112 @@ insert into actors (
         "Anne Hathaway",
         10
     );
+    -- Most recently deleted
+    insert into figures (
+    figure,
+    movie_id
+)
+    values (
+        "Bruce Wayne",
+        1
+    );
+    insert into figures (
+    figure,
+    movie_id
+)
+    values (
+        "Bruce Wayne",
+        2
+    );
+    insert into figures (
+    figure,
+    movie_id
+)
+    values (
+        "Bruce Wayne",
+        3
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Alfred",
+        1
+    );
+     insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Alfred",
+        2
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Ra's Al Ghul",
+        1
+    );
+     insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Rachel Dawes",
+        1
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Rachel Dawes",
+        2
+    );
+ insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Commissioner Gordon",
+        1
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Commissioner Gordon",
+        3
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Joker",
+        2
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Harvey Dent",
+        2
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Bane",
+        3
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "John Blake",
+        3
+    );
+    insert into figures (
+    figure,
+    movie_id)
+    values (
+        "Selina Kyle",
+        3
+    );

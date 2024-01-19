@@ -123,6 +123,7 @@ drop table movies;
 drop table actors;
 drop table figures;
 drop table studios;
+drop table movie_figures;
 
 -- Create tables first
 create table studios (
@@ -147,6 +148,7 @@ create table actors (
     actor_id integer primary key autoincrement,
     actor text,
     figure_id integer,
+    figure text,
    foreign key (figure_id) references figures(figure_id)
    );
 
@@ -203,206 +205,85 @@ inner join studios
 on movies.studio_id = studios.studio_id;
 
 -- Start filling tables for part 2
-create table movie_characters (
-    movie_id integer,
-    actor_id integer,
-    figure_id integer,
-    foreign key (movie_id) references movies(movie_id),
-    foreign key (actor_id) references actors(actor_id),
-    foreign key (figure_id) references figures(figure_id)
-
-insert into figures (
-    figure,
-    movie_id
-)
-    values (
-        "Bruce Wayne",
-        1
-    );
-    insert into figures (
-    figure,
-    movie_id
-)
-    values (
-        "Bruce Wayne",
-        2
-    );
-    insert into figures (
-    figure,
-    movie_id
-)
-    values (
-        "Bruce Wayne",
-        3
-    );
-    insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Alfred",
-        1
-    );
-     insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Alfred",
-        2
-    );
-    insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Ra's Al Ghul",
-        1
-    );
-     insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Rachel Dawes",
-        1
-    );
-     movie_id)
-    values (
-        "Rachel Dawes",
-        2
-    );
- insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Commissioner Gordon",
-        1
-    );
-    insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Commissioner Gordon",
-        3
-    );
-    insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Joker",
-        2
-    );
-    insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Harvey Dent",
-        2
-    );
-    insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Bane",
-        3
-    );
-    insert into figures (
-    figure,
-    movie_id)
-    values (
-        "John Blake",
-        3
-    );
-    insert into figures (
-    figure,
-    movie_id)
-    values (
-        "Selina Kyle",
-        3
-    );
 -- Insert values into actors
 insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Christian Bale",
-        1
+        "Bruce Wayne"
     );
     insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Michael Caine",
-        2
+        "Alfred"
     );
     insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Liam Neeson",
-        3
+        "Ra's Al Ghul"
     );
     insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Katie Holmes",
-        4
+        "Rachel Dawes"
     );
      insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Gary Oldman",
-        5
+        "Commissioner Gordon"
     );
      insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Heath Ledger",
-        6
+        "Joker"
     );
      insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Aaron Eckhart",
-        7
+        "Harvey Dent"
     );
      insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Maggie Gyllenhaal",
-        4
+        "Rachel Dawes"
     );
       insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Tom Hardy",
-        8
+        "Bane"
     );
       insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Joseph Gordon-Levitt",
-        9
+        "John Blake"
     );
       insert into actors (
     actor,
-    figure_id)
+    figure)
     values (
         "Anne Hathaway",
-        10
+        "Selina Kyle"
     );
-insert into movie_characters
-movie_id, 
-actor_id,
-character_id)
-values
-(1,
-1,
-1)
+
 select * from movies;
 select * from actors;
 select * from figures;
@@ -414,3 +295,4 @@ select * from studios;
 .print "========"
 .print ""
 
+-- Select output for Part 2
