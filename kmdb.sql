@@ -196,6 +196,9 @@ from movies
 inner join studios
 on movies.studio_id = studios.studio_id;
 
+-- Check
+select * from actors;
+
 -- Start filling tables for part 2
 -- Insert values into actors
 insert into actors (
@@ -207,33 +210,6 @@ insert into actors (
         "Bruce Wayne",
         1
     );
-    insert into actors (
-    actor,
-    figure,
-    movie_id)
-    values (
-        "Christian Bale",
-        "Bruce Wayne",
-        2
-    );
-    insert into actors (
-    actor,
-    figure,
-    movie_id)
-    values (
-        "Christian Bale",
-        "Bruce Wayne",
-        3
-    );
-    insert into actors (
-    actor,
-    figure,
-    movie_id)
-    values (
-        "Michael Caine",
-        "Alfred",
-        1
-    );
      insert into actors (
     actor,
     figure,
@@ -241,7 +217,7 @@ insert into actors (
     values (
         "Michael Caine",
         "Alfred",
-        2
+        1
     );
     insert into actors (
     actor,
@@ -261,7 +237,7 @@ insert into actors (
         "Rachel Dawes",
         1
     );
-     insert into actors (
+    insert into actors (
     actor,
     figure,
     movie_id)
@@ -269,6 +245,24 @@ insert into actors (
         "Gary Oldman",
         "Commissioner Gordon",
         1
+    );
+    insert into actors (
+    actor,
+    figure,
+    movie_id)
+    values (
+        "Christian Bale",
+        "Bruce Wayne",
+        2
+    );
+     insert into actors (
+    actor,
+    figure,
+    movie_id)
+    values (
+        "Michael Caine",
+        "Alfred",
+        2
     );
      insert into actors (
     actor,
@@ -296,6 +290,15 @@ insert into actors (
         "Maggie Gyllenhaal",
         "Rachel Dawes",
         2
+    );
+    insert into actors (
+    actor,
+    figure,
+    movie_id)
+    values (
+        "Christian Bale",
+        "Bruce Wayne",
+        3
     );
       insert into actors (
     actor,
@@ -325,11 +328,6 @@ insert into actors (
         3
     );
 
-select * from movies;
-select * from actors;
-select * from figures;
-select * from studios;
-
 -- Prints a header for the cast output
 .print ""
 .print "Top Cast"
@@ -342,5 +340,7 @@ from movies
 inner join actors
 on movies.movie_id = actors.movie_id
 order by 
-movie.title,
-actors.actor
+movies.title,
+actors.actor;
+-- Unsure how to get the exact order. Possibly by using ROWID (i.e., order by actors.rowid)
+-- Alternatively, could create an ordering column in the actors list
